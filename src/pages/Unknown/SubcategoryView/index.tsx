@@ -36,7 +36,7 @@ import { doc, getDoc, DocumentData } from "firebase/firestore";
 import { firebaseApp, database, storage } from "./../../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-import { Button } from "./../../Authenticated/Categories/View/styles";
+import { Button } from "./../../../global-styles";
 
 import { v4 } from "uuid";
 
