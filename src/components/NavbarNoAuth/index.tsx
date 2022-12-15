@@ -75,8 +75,17 @@ const NavbarNoAuth: React.FC = () => {
       toSearch = trimString(toSearch); // trim it
       for (var i = 0; i < data.length; i++) {
         for (var key in data[i]) {
-          if (data[i][key].indexOf(toSearch) != -1) {
-            if (!itemExists(results, data[i])) results.push(data[i]);
+          var comparedData = data[i][key];
+          if (typeof comparedData == typeof "") {
+            var stringComparedData = comparedData as string;
+
+            stringComparedData = stringComparedData.toLowerCase();
+
+            if (stringComparedData.indexOf(toSearch) != -1) {
+              if (!itemExists(results, data[i])) results.push(data[i]);
+            }
+          } else {
+            console.log("not string: ", comparedData);
           }
         }
       }
